@@ -1,0 +1,6 @@
+{
+  "name": "Job Tracker",
+  "description": "Modern job search pipeline and application tracker with Supabase data storage, resume management, stage history, reminders, and custom cookie session storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

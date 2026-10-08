@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-main: #F2F2F7;
+    --bg-card: #FFFFFF;
+    --bg-input: #E5E5EA;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --separator: #E5E5EA;
+    --accent: #0A84FF;
+    
+    /* Stage colors */
+    --stage-saved: #8E8E93;
+    --stage-applied: #0A84FF;
+    --stage-assessment: #FF9F0A;
+    --stage-interview: #BF5AF2;
+    --stage-selected: #30D158;
+    --stage-rejected: #FF453A;
+  }
+
+  html.dark {
+    --bg-main: #000000;
+    --bg-card: #1C1C1E;
+    --bg-input: #2C2C2E;
+    --text-primary: #F5F5F7;
+    --text-secondary: #8E8E93;
+    --separator: #38383A;
+    --accent: #0A84FF;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
+    font-size: 15px;
+    line-height: 1.47;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 150ms ease, color 150ms ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+  }
+}
+
+/* Translucent frosted top bar */
+.frosted-topbar {
+  background-color: rgba(242, 242, 247, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--separator);
+}
+
+html.dark .frosted-topbar {
+  background-color: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--separator);
+}
+
+/* Apple-style Cards */
+.apple-card {
+  background-color: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+html.dark .apple-card {
+  box-shadow: none;
+  border: 1px solid var(--separator);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(142, 142, 147, 0.3);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(142, 142, 147, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 142, 147, 0.5);
+}
